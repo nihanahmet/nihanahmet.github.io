@@ -1,0 +1,1425 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F0E7E0">
+<meta name="description" content="17 Ekim 2026 Cumartesi, saat 18.00 — Parle Davet ve Balo Salonu, Kayseri. Davetiyeyi açmak için dokunun.">
+
+<!-- WhatsApp / Instagram / iMessage link önizlemesi -->
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://nihanahmet.github.io/">
+<meta property="og:title"       content="Nihan ve Ahmet · Düğün Davetiyesi">
+<meta property="og:description" content="17 Ekim 2026 Cumartesi, saat 18.00 — Parle Davet ve Balo Salonu, Kayseri. Davetiyeyi açmak için dokunun.">
+<meta property="og:image"       content="https://nihanahmet.github.io/onizleme.jpg">
+<meta property="og:locale"      content="tr_TR">
+<meta name="twitter:card"       content="summary_large_image">
+<meta name="twitter:title"      content="Nihan ve Ahmet · Düğün Davetiyesi">
+<meta name="twitter:description" content="17 Ekim 2026 Cumartesi, saat 18.00 — Parle Davet ve Balo Salonu, Kayseri. Davetiyeyi açmak için dokunun.">
+<meta name="twitter:image"      content="https://nihanahmet.github.io/onizleme.jpg">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><text y=%2226%22 font-size=%2226%22>&#128140;</text></svg>">
+<title>Nihan ve Ahmet Davetiyesi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap">
+
+</head>
+<body>
+<style>
+/* ─────────────────────────────────────────────
+   FİLDİŞİ & DANTEL — dijital düğün davetiyesi
+   Tek bir görsel dünyaya bağlı: krem kâğıt, ince altın
+   çizgi, inci. Tema anahtarı yok; her renk açıkça boyanır.
+   ───────────────────────────────────────────── */
+:root{
+  --paper:      #F6F1E7;   /* fildişi zemin      */
+  --paper-2:    #EBE1D0;   /* kâğıdın gölgesi    */
+  --pearl:      #FFFDF8;   /* inci / kart yüzeyi */
+  --ink:        #413A2D;   /* ana yazı      9.4:1 */
+  --ink-soft:   #665D4F;   /* ikincil yazı  5.4:1 */
+  --gold:       #B39760;   /* SADECE çizgi/ikon/süs */
+  --gold-text:  #7D5E24;   /* altın YAZI    5.0:1 */
+  --gold-line:  rgba(179,151,96,.42);
+  --gold-faint: rgba(179,151,96,.20);
+
+  --measure: 32rem;
+  --step-0: .74rem;
+  --step-1: .95rem;
+  --step-2: 1.1rem;
+
+  /* videonun ekrandaki gerçek kutusu (JS doldurur) */
+  --fw: 430px; --fh: 764px; --ftop: 0px;
+
+  /* davet kartının tipografi ölçüleri — video modunda kutuya göre yeniden ölçeklenir */
+  --t-eyebrow: .74rem;
+  --t-names:   clamp(3.4rem, 17vw, 5.2rem);
+  --t-invite:  clamp(1.08rem, 4.4vw, 1.3rem);
+  --t-small:   .74rem;
+  --t-day:     2.2rem;
+  --t-cart-w:  92px;
+  --t-place:   clamp(1.2rem, 5vw, 1.5rem);
+  --t-btn:     .7rem;
+  --t-h2:      clamp(1.35rem, 5vw, 1.7rem);
+  --t-count:   clamp(1.75rem, 7.5vw, 2.4rem);
+  --t-when:    1.3rem;
+  --t-venue:   clamp(1.3rem, 5.5vw, 1.7rem);
+  --t-body:    .95rem;
+  --t-scroll:  .88rem;
+}
+
+/* ── Video modu: yazılar videonun kemerinin içine oturur ──────
+   Videonun kendi kemeri ve çiçekleri olduğu için çizdiğimiz
+   kemer çerçevesi ile dantel köşeler devre dışı kalır. */
+.has-video{
+  --t-eyebrow: calc(var(--fw) * .0285);
+  --t-names:   calc(var(--fw) * .150);
+  --t-invite:  calc(var(--fw) * .0405);
+  --t-small:   calc(var(--fw) * .0275);
+  --t-day:     calc(var(--fw) * .085);
+  --t-cart-w:  calc(var(--fw) * .185);
+  --t-place:   calc(var(--fw) * .048);
+  --t-btn:     calc(var(--fw) * .0275);
+  --t-h2:      calc(var(--fw) * .050);
+  --t-count:   calc(var(--fw) * .078);
+  --t-when:    calc(var(--fw) * .042);
+  --t-venue:   calc(var(--fw) * .050);
+  --t-body:    calc(var(--fw) * .033);
+  --t-scroll:  calc(var(--fw) * .0315);
+}
+.has-video #laceOverlay{ display: none; }
+.has-video .paper{ background: #F0E7E0; }
+.has-video .paper::after{ display: none; }
+.has-video .hero{
+  height: calc(var(--fh) + var(--ftop) * 2);
+  padding: 0; gap: 0;
+  align-content: start;
+}
+.has-video .arch{
+  width: calc(var(--fw) * .70);
+  min-height: calc(var(--fh) * .60);
+  margin-top: calc(var(--ftop) + var(--fh) * .145);
+  padding: 0;
+  border: 0; background: none; backdrop-filter: none;
+  border-radius: 0;
+  justify-content: center;
+  gap: calc(var(--fh) * .030);
+}
+.has-video .arch::before,
+.has-video .arch::after{ display: none; }
+.has-video .eyebrow{ max-width: 66%; line-height: 1.75; }
+.has-video #cover{
+  padding-top: 0;
+  padding-bottom: calc(var(--ftop) + var(--fh) * .065);
+}
+.has-video .cover-top{
+  margin-top: calc(var(--ftop) + var(--fh) * .27);
+  /* Kapıların ortasındaki dikey birleşme çizgisi yazının içinden geçiyordu;
+     kenarları eriyen krem bir hale yazıyı zeminden ayırıyor. */
+  padding: calc(var(--fw) * .11) calc(var(--fw) * .10) calc(var(--fw) * .12);
+  background: radial-gradient(farthest-side at 50% 48%,
+    rgba(251,247,240,.93) 0%,
+    rgba(251,247,240,.86) 34%,
+    rgba(251,247,240,.58) 60%,
+    rgba(251,247,240,.22) 82%,
+    rgba(251,247,240,0)   100%);
+}
+.has-video .scroll-btn{ margin-top: calc(var(--fh) * .035); }
+
+/* Kaydırınca gelen bölümler de aynı kemerin içinde kalır:
+   kart zemini, çerçevesi ve ayırıcı kurdeleler kalkar. */
+.has-video .ribbon{ display: none; }
+.has-video .card{
+  background: none; border: 0; box-shadow: none;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+  border-radius: 0; padding: 0;
+}
+.has-video .wrap{ width: calc(var(--fw) * .70); }
+.has-video #content{ padding-bottom: 0; }
+.has-video .page{
+  min-height: calc(var(--fh) + var(--ftop) * 2);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: calc(var(--fh) * .03);
+  padding: calc(var(--fh) * .18) 0;
+}
+.has-video .closing{ padding: calc(var(--fh) * .18) 0; }
+/* Konum bölümünde en üstte konum ikonu var; ortalanınca başlık diğer
+   bölümlerden ~5% daha aşağı düşüyordu. Bu bölümü sabit üst hizaya alıyoruz. */
+.has-video #location{
+  justify-content: flex-start;
+  padding: calc(var(--ftop) + var(--fh) * .175) 0 calc(var(--fh) * .12);
+}
+.has-video .card h2{ margin-bottom: 0; }
+.has-video .card .sub{ margin-bottom: 0; }
+.has-video .count{ margin: 0; width: 100%; }
+.has-video .when{ margin: 0; }
+.has-video .venue{ margin: 0; }
+.has-video .city{ margin: 0; }
+.has-video .addr{ margin: 0; }
+.has-video .pin{ margin: 0 auto; }
+.has-video .actions{ width: 100%; }
+.has-video .btn{ background: rgba(255,253,248,.60); }
+.has-video .btn.primary{ background: rgba(240,228,200,.72); }
+.has-video .closing p{ margin: 0; }
+.has-video .replay{ margin-top: calc(var(--fh) * .03); }
+.has-video .hero,
+.has-video .page{ position: relative; }
+.has-video .scroll-btn{
+  position: absolute;
+  left: 50%; bottom: calc(var(--ftop) + var(--fh) * .060);
+  transform: translateX(-50%);
+  margin: 0;
+}
+
+/* Bölüm geçişini CSS scroll-snap değil, aşağıdaki JS yönetiyor.
+   (snap + smooth birlikte kullanılınca tarayıcı oturmaya çalışırken
+   aşağı yukarı zıplıyordu.) Lastik gibi geri sekmeyi de kapatıyoruz. */
+body.opened.snap{ overscroll-behavior-y: none; }
+
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  overflow: hidden;                     /* kapak açılana kadar kilitli */
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Jost", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: var(--step-1);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body.opened{ overflow-y: auto; overflow-x: hidden; }
+
+/* ── Sahne: sabit arka plan ─────────────────────────────────── */
+#stage{ position: fixed; inset: 0; z-index: 0; overflow: hidden; }
+
+.paper{
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(115% 75% at 22% 6%,  #FFFCF5 0%, rgba(255,252,245,0) 58%),
+    radial-gradient(105% 85% at 86% 94%, #E7DCC8 0%, rgba(231,220,200,0) 55%),
+    linear-gradient(162deg, #F9F5EC 0%, #F2EADC 48%, #E9DECA 100%);
+}
+.paper::after{                          /* çok ince kâğıt dokusu */
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(96deg, rgba(255,255,255,.30) 0 1px, rgba(255,255,255,0) 1px 7px);
+}
+
+/* dantel köşeler — kartın üstüne düşen sabit perde */
+#laceOverlay{ position: fixed; inset: 0; z-index: 20; pointer-events: none; }
+.lace{
+  position: absolute;
+  width: min(64vw, 350px);
+  height: auto;
+  opacity: .92;
+}
+.lace-tl{ top: -5%; left: -10%; }
+.lace-br{ bottom: -6%; right: -11%; transform: rotate(180deg); }
+.lace .petal{ fill: #FCF9F1; stroke: var(--gold-line); stroke-width: .8; }
+.lace .petal2{ fill: #FFFDF7; stroke: rgba(179,151,96,.30); stroke-width: .6; }
+.lace .stem{ fill: none; stroke: var(--gold-line); stroke-width: .9; stroke-linecap: round; }
+.lace .scallop{ fill: none; stroke: var(--gold-faint); stroke-width: .9; }
+.lace .bead{ stroke: rgba(179,151,96,.35); stroke-width: .45; }
+
+#introVideo{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+#introVideo.on{ opacity: 1; }
+
+#scrim{
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(246,241,231,.12), rgba(233,222,202,.62));
+  opacity: .08;
+  pointer-events: none;
+  transition: opacity .25s linear;
+}
+
+/* ── Zarf yedeği (video verilmediğinde oynar) ──────────────── */
+#fallback{
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  perspective: 1400px;
+  transition: opacity .8s ease;
+}
+#fallback[hidden]{ display: none; }
+
+.envelope{
+  position: relative;
+  width: min(72vw, 330px);
+  aspect-ratio: 3 / 2;
+  transform-style: preserve-3d;
+  filter: drop-shadow(0 22px 38px rgba(120, 100, 66, .22));
+}
+.env-body{
+  position: absolute; inset: 0;
+  border-radius: 3px;
+  background: linear-gradient(155deg, #FDFAF3, #EFE5D3);
+  border: 1px solid var(--gold-line);
+}
+.env-card{
+  position: absolute;
+  left: 6%; right: 6%; top: 3%;
+  height: 96%;
+  border-radius: 2px;
+  background: linear-gradient(170deg, #FFFEFA, #FAF4E9);
+  border: 1px solid var(--gold-line);
+  box-shadow: 0 10px 24px rgba(120,100,66,.15);
+  transform: translateY(0);
+  transition: transform 1s cubic-bezier(.22,.7,.24,1);
+  z-index: 2;
+}
+.env-card .monogram{
+  position: absolute; left: 0; right: 0; top: 15%;
+  text-align: center;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.3rem; letter-spacing: .26em; color: var(--gold);
+}
+.envelope.open .env-card{ transform: translateY(-64%); }
+
+.env-front{
+  position: absolute; inset: 0;
+  border-radius: 3px;
+  background: linear-gradient(200deg, #F8F2E6, #EBE0CD);
+  border: 1px solid var(--gold-line);
+  z-index: 3;
+  overflow: hidden;
+}
+.env-front::before{                     /* arka kapağın V dikişi */
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 68%;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.02));
+}
+.env-flap{
+  position: absolute; left: 0; right: 0; top: 0; height: 66%;
+  background: linear-gradient(180deg, #FDFAF2, #F1E8D8);
+  border: 1px solid var(--gold-line);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transform: rotateX(0deg);
+  transition: transform 1.05s cubic-bezier(.5,.02,.2,1);
+  z-index: 4;
+  backface-visibility: hidden;
+}
+.envelope.open .env-flap{ transform: rotateX(-176deg); z-index: 1; }
+
+.env-seal{                              /* mum yerine inci toka */
+  position: absolute; left: 50%; top: 64%;
+  width: 52px; height: 52px; margin: -26px 0 0 -26px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 28%, #FFFFFF, #FBF6EA 48%, #DACDB2 100%);
+  box-shadow: 0 3px 10px rgba(120,100,66,.28), inset 0 0 0 1px rgba(179,151,96,.5);
+  display: grid; place-items: center;
+  color: var(--gold);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: .9rem; letter-spacing: .1em;
+  z-index: 6;
+  transition: transform .5s ease, opacity .5s ease;
+}
+.envelope.open .env-seal{ transform: scale(.5) translateY(-8px); opacity: 0; }
+
+#paperWash{ position: absolute; inset: 0; opacity: 0; transition: opacity .9s ease; pointer-events: none; }
+#paperWash.on{ opacity: 1; }
+
+/* ── Kapak ekranı ──────────────────────────────────────────── */
+#cover{
+  position: fixed; inset: 0; z-index: 30;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: space-between;
+  padding: 5vh 1.5rem 7vh;
+  text-align: center;
+  transition: opacity .7s ease;
+}
+#cover{ cursor: pointer; }
+#cover.gone{ opacity: 0; pointer-events: none; }
+.cover-top{ display: grid; gap: .45rem; justify-items: center; }
+.cover-script{
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic; font-weight: 500;
+  font-size: clamp(1.3rem, 4.6vw, 1.7rem);
+  color: var(--gold-text);
+  line-height: 1;
+}
+.cover-names{
+  font-family: "Parisienne", "Cormorant Garamond", Georgia, cursive;
+  font-weight: 400;
+  font-size: clamp(2.1rem, 7.4vw, 2.8rem);
+  line-height: 1.15;
+  letter-spacing: 0;
+  color: var(--ink);
+  margin: 0;
+}
+.open-btn{
+  font-family: "Jost", sans-serif;
+  font-size: var(--step-0);
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: rgba(255,253,248,.86);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  padding: .95rem 2.1rem;
+  cursor: pointer;
+  transition: background .3s ease, letter-spacing .3s ease;
+}
+.open-btn:hover{ background: var(--pearl); letter-spacing: .34em; }
+.open-btn:focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* ── İçerik ────────────────────────────────────────────────── */
+#content{
+  position: relative; z-index: 10;
+  opacity: 0; visibility: hidden;
+  transition: opacity 1.1s ease;
+  padding-bottom: 12vh;
+}
+#content.reveal{ opacity: 1; visibility: visible; }
+
+.wrap{ width: min(100% - 2.25rem, var(--measure)); margin-inline: auto; }
+
+/* Kemerli davet kartı */
+.grp{ display: grid; justify-items: center; gap: .65rem; width: 100%; }
+.hero{ padding: 8vh 0 4vh; display: grid; justify-items: center; gap: 1.5rem; }
+.cartouche .month{ font-size: calc(var(--t-small) * .87); }
+.cartouche .year{ font-size: calc(var(--t-small) * .82); }
+
+.arch{
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(1.1rem, 4.5vw, 1.7rem);
+  width: 100%;
+  padding: clamp(3rem, 11vw, 4.5rem) clamp(1.25rem, 6vw, 2.5rem) clamp(2.25rem, 8vw, 3rem);
+  text-align: center;
+  border: 1px solid var(--gold-line);
+  border-radius: 46% 46% 4px 4px / 15% 15% 4px 4px;
+  background: rgba(255,253,248,.66);
+  backdrop-filter: blur(3px);
+}
+.arch::before{                          /* ikinci ince hat */
+  content: ""; position: absolute; inset: 7px;
+  border: 1px solid var(--gold-faint);
+  border-radius: 46% 46% 3px 3px / 15% 15% 3px 3px;
+  pointer-events: none;
+}
+.arch::after{                           /* kemerin tepesindeki inci */
+  content: ""; position: absolute; left: 50%; top: 20px;
+  width: 7px; height: 7px; margin-left: -3.5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #FFF, #F7EFDE 55%, #DCCFB4);
+  box-shadow: 0 0 0 1px rgba(179,151,96,.45);
+}
+
+.eyebrow{
+  font-size: var(--t-eyebrow);
+  font-weight: 400;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.9;
+}
+.names{
+  font-family: "Parisienne", "Cormorant Garamond", Georgia, cursive;
+  font-weight: 400;
+  font-size: var(--t-names);
+  line-height: 1.0;
+  letter-spacing: 0;
+  color: var(--ink);
+  margin: 0;
+  display: grid; gap: .02em;
+}
+.conj{
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic; font-weight: 300;
+  font-size: .30em; line-height: 1.2;
+  color: var(--gold-text);
+  /* El yazısı fontun üst çıkıntıları "Ahmet"in satır kutusunu doldurduğu,
+     "Nihan"ın altında ise boş iniş payı kaldığı için "ve" görsel olarak
+     aşağı kayıyordu. Bu değer onu iki ismin tam ortasına getirir. */
+  transform: translateY(-.45em);
+  letter-spacing: .02em;
+}
+
+.flourish{ display: block; width: calc(var(--t-names) * 1.6); height: 12px; margin: 0 auto; overflow: visible; }
+.flourish path{ fill: none; stroke: var(--gold-line); stroke-width: 1; }
+.flourish circle{ fill: var(--gold); }
+
+.invite{
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  font-size: var(--t-invite);
+  line-height: 1.62;
+  color: var(--ink);
+  max-width: 24rem; margin: 0 auto;
+  text-wrap: pretty;
+}
+.families{
+  font-size: var(--t-small);
+  font-weight: 400;
+  letter-spacing: .26em; text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.9;
+}
+
+/* tarih kartuşu */
+.datebar{
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: center; gap: .5rem;
+  margin: 0; width: 100%;
+}
+.datebar .side{
+  font-size: var(--t-small);
+  font-weight: 500;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.cartouche{
+  position: relative;
+  width: var(--t-cart-w); padding: .85rem .4rem .7rem;
+  background: linear-gradient(165deg, rgba(255,254,250,.80), rgba(244,236,220,.80));
+  clip-path: polygon(50% 0, 100% 11%, 100% 89%, 50% 100%, 0 89%, 0 11%);
+  box-shadow: 0 0 0 1px var(--gold-line);
+  line-height: 1;
+}
+.cartouche .day{
+  display: block;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500; font-size: var(--t-day);
+  font-variant-numeric: tabular-nums;
+}
+.cartouche .month{
+  display: block; margin-top: .45rem;
+  font-size: .64rem; letter-spacing: .2em; text-transform: uppercase;
+  font-weight: 500; color: var(--ink-soft);
+}
+.cartouche .year{
+  display: block; margin-top: .5rem;
+  font-size: .6rem; letter-spacing: .28em;
+  font-weight: 500; color: var(--gold-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.place{
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: var(--t-place);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.scroll-btn, .replay{
+  display: inline-flex; align-items: center; gap: .72em;
+  cursor: pointer;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: var(--t-scroll);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: .01em;
+  text-transform: none;
+  white-space: nowrap;
+  color: #4A4238;
+  background: #FDFBF6;
+  border: 0;
+  border-radius: 999px;
+  padding: .82em 1.3em;
+  box-shadow: 0 2px 9px rgba(92,74,50,.16), 0 1px 2px rgba(92,74,50,.08);
+  /* transform YOK: buton ortalamak için translateX kullanıyor,
+     hover'da transform'a dokunmak onu yerinden oynatır. */
+  transition: background .25s ease, box-shadow .25s ease;
+}
+.scroll-btn:hover, .replay:hover{
+  background: #FFFFFF;
+  box-shadow: 0 3px 12px rgba(92,74,50,.20), 0 1px 2px rgba(92,74,50,.10);
+}
+.scroll-btn:focus-visible, .replay:focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
+.arw{ width: .95em; height: .95em; flex: none; stroke: #4A4238; fill: none; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* bölümler arası kurdele + inci */
+.ribbon{ height: 70px; width: 1px; margin: 0 auto; background: linear-gradient(180deg, transparent, var(--gold-line) 30%, var(--gold-line) 70%, transparent); position: relative; }
+.ribbon::after{
+  content: ""; position: absolute; left: 50%; top: 50%;
+  width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #FFF, #F7EFDE 55%, #DCCFB4);
+  box-shadow: 0 0 0 1px rgba(179,151,96,.5);
+}
+
+.card{
+  background: rgba(255,253,248,.88);
+  backdrop-filter: blur(12px) saturate(1.05);
+  -webkit-backdrop-filter: blur(12px) saturate(1.05);
+  border: 1px solid var(--gold-line);
+  border-radius: 3px;
+  padding: 2.4rem 1.75rem 2.1rem;
+  text-align: center;
+  box-shadow: 0 18px 40px rgba(120,100,66,.1);
+}
+.card h2{
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 400;
+  font-size: var(--t-h2);
+  letter-spacing: .16em; text-transform: uppercase;
+  margin: 0 0 .35rem;
+}
+.card .sub{
+  font-size: var(--t-small);
+  font-weight: 400;
+  letter-spacing: .24em; text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 1.6rem;
+}
+
+.count{ display: grid; grid-template-columns: repeat(4, 1fr); margin: 0 0 1.6rem; }
+.count div{ padding: .2rem .1rem; border-left: 1px solid var(--gold-faint); }
+.count div:first-child{ border-left: 0; }
+.count b{
+  display: block;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 400;
+  font-size: var(--t-count);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.count span{ display: block; font-size: .66rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); margin-top: .5rem; }
+
+.when{
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  font-size: var(--t-when); line-height: 1.35; text-wrap: balance;
+  margin: 0 0 1.5rem;
+}
+.when small{
+  display: block; margin-top: .55rem;
+  font-family: "Jost", sans-serif;
+  font-size: .68rem; font-weight: 500; letter-spacing: .24em; text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.actions{ display: grid; gap: .6rem; }
+.btn{
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  font-family: "Jost", sans-serif;
+  font-size: var(--t-btn); letter-spacing: .22em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer;
+  padding: .85rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--ink);
+  transition: background .25s ease;
+}
+.btn:hover{ background: rgba(179,151,96,.12); }
+.btn.primary{ background: rgba(179,151,96,.16); }
+.btn.primary:hover{ background: rgba(179,151,96,.26); }
+.btn:focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
+.btn svg{ width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.3; }
+.arch .btn{ background: rgba(255,253,248,.75); }
+
+.venue{
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: var(--t-venue);
+  font-weight: 400; line-height: 1.25;
+  margin: 0 0 .45rem; text-wrap: balance;
+}
+.city{ font-size: var(--t-small); font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--gold-text); margin: 0 0 1.2rem; }
+.addr{ color: var(--ink-soft); font-weight: 400; font-size: var(--t-body); max-width: 25rem; margin: 0 auto 1.6rem; }
+.pin{ width: 32px; height: 44px; margin: 0 auto 1rem; display: block; stroke: var(--gold); fill: none; stroke-width: 1.1; }
+
+.closing{ text-align: center; padding: 3.2rem 0 0; }
+.closing p{
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic; font-weight: 500;
+  font-size: clamp(1.25rem, 5vw, 1.6rem);
+  color: var(--gold-text);
+  margin: 0 0 1.1rem; line-height: 1.45;
+}
+.closing .sig{
+  font-family: "Playfair Display", Georgia, serif;
+  letter-spacing: .28em; text-transform: uppercase;
+  font-size: var(--t-small); color: var(--ink-soft);
+  margin: 0;
+}
+.replay{ margin-top: 1.6rem; }
+
+#sound{
+  position: fixed; right: 1rem; bottom: 1rem; z-index: 40;
+  width: 42px; height: 42px; border-radius: 50%;
+  display: none; place-items: center;
+  background: rgba(255,253,248,.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--gold-line);
+  cursor: pointer;
+}
+#sound.on{ display: grid; }
+@keyframes pulseRing{
+  0%{   box-shadow: 0 0 0 0    rgba(179,151,96,.5); }
+  70%{  box-shadow: 0 0 0 13px rgba(179,151,96,0);  }
+  100%{ box-shadow: 0 0 0 0    rgba(179,151,96,0);  }
+}
+#sound.attn{ animation: pulseRing 1.9s ease-out 4; }
+#soundHint{
+  position: fixed; right: 3.9rem; bottom: 1.3rem; z-index: 40;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: .8rem; line-height: 1; color: #4A4238;
+  background: #FDFBF6; border-radius: 999px;
+  padding: .62em 1.05em; white-space: nowrap;
+  box-shadow: 0 2px 9px rgba(92,74,50,.16);
+  pointer-events: none;
+}
+#sound svg{ width: 17px; height: 17px; stroke: var(--ink); fill: none; stroke-width: 1.3; }
+#sound:focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}
+</style>
+
+<div id="stage">
+  <div class="paper"></div>
+
+  <video id="introVideo" playsinline preload="auto"></video>
+
+  <div id="fallback">
+    <div class="envelope" id="env">
+      <div class="env-body"></div>
+      <div class="env-card"><span class="monogram" id="mono">N &nbsp;A</span></div>
+      <div class="env-front"></div>
+      <div class="env-flap"></div>
+      <div class="env-seal" id="seal">NA</div>
+    </div>
+  </div>
+
+  <div class="paper" id="paperWash"></div>
+  <div id="scrim"></div>
+</div>
+
+<div id="cover" lang="tr">
+  <div class="cover-top">
+    <span class="cover-script">Davetlisiniz</span>
+    <p class="cover-names" id="coverNames">Nihan &amp; Ahmet</p>
+  </div>
+  <button class="open-btn" id="openBtn" type="button">Davetiyeyi Aç</button>
+</div>
+
+<main id="content" lang="tr" aria-hidden="true">
+
+  <section class="hero wrap">
+    <div class="arch">
+      <div class="grp">
+      <p class="eyebrow" id="eyebrow">Düğünümüze davetlisiniz</p>
+
+      <h1 class="names">
+        <span id="bride">Nihan</span>
+        <span class="conj" id="conj">ve</span>
+        <span id="groom">Ahmet</span>
+      </h1>
+
+      <svg class="flourish" viewBox="0 0 92 12" aria-hidden="true">
+        <path d="M0 6 H34 M58 6 H92"/>
+        <path d="M38 6 L46 1 L54 6 L46 11 Z"/>
+        <circle cx="46" cy="6" r="1.4"/>
+      </svg>
+      </div>
+
+      <div class="grp">
+      <p class="invite" id="inviteText">Mutluluğumuzu sizinle paylaşmak dileğiyle düğünümüze davetlisiniz.</p>
+
+      <p class="families" id="families"></p>
+      </div>
+
+      <div class="grp">
+      <div class="datebar">
+        <span class="side" id="weekday">Cumartesi</span>
+        <div class="cartouche">
+          <b class="day" id="dayNum">17</b>
+          <span class="month" id="monthName">Ekim</span>
+          <span class="year" id="yearNum">2026</span>
+        </div>
+        <span class="side" id="timeNum">18.00</span>
+      </div>
+
+      <p class="place" id="placeLine">Parle Davet ve Balo Salonu</p>
+
+      <a class="btn" id="heroMaps" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 14.5s5-4.6 5-8a5 5 0 0 0-10 0c0 3.4 5 8 5 8Z"/><circle cx="8" cy="6.4" r="1.9"/></svg>
+        Yol tarifi al
+      </a>
+      </div>
+    </div>
+
+    <button class="scroll-btn" type="button" data-next="#countdown">
+      Aşağı Kaydır
+      <svg class="arw" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.6v10.2M3.9 8.9 8 13l4.1-4.1"/></svg>
+    </button>
+  </section>
+
+  <div class="ribbon"></div>
+
+  <section class="wrap card page" id="countdown">
+    <h2>Geri Sayım</h2>
+    <p class="sub">O güne kalan</p>
+    <div class="count" id="counter">
+      <div><b id="cD">—</b><span>Gün</span></div>
+      <div><b id="cH">—</b><span>Saat</span></div>
+      <div><b id="cM">—</b><span>Dakika</span></div>
+      <div><b id="cS">—</b><span>Saniye</span></div>
+    </div>
+    <p class="when"><span id="whenLine">17 Ekim 2026, Cumartesi</span><small id="timeLine">Saat 18.00</small></p>
+    <div class="actions">
+      <a class="btn primary" id="gcal" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3" width="12" height="11" rx="1.5"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg>
+        Google Takvim'e ekle
+      </a>
+      <button class="btn" id="ics" type="button">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8m0 0 3-3m-3 3-3-3M2.5 12.5h11"/></svg>
+        Takvim dosyası (.ics)
+      </button>
+    </div>
+    <button class="scroll-btn" type="button" data-next="#location">
+      Aşağı Kaydır
+      <svg class="arw" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.6v10.2M3.9 8.9 8 13l4.1-4.1"/></svg>
+    </button>
+  </section>
+
+  <div class="ribbon"></div>
+
+  <section class="wrap card page" id="location">
+    <svg class="pin" viewBox="0 0 24 32" aria-hidden="true">
+      <path d="M12 31c6-8.5 9-13.2 9-17.6A9 9 0 0 0 3 13.4C3 17.8 6 22.5 12 31Z"/>
+      <circle cx="12" cy="13" r="3.4"/>
+    </svg>
+    <h2>Konum</h2>
+    <p class="sub">Sizi burada bekliyoruz</p>
+    <p class="venue" id="venueName">Parle Davet ve Balo Salonu</p>
+    <p class="city" id="venueCity">Melikgazi · Kayseri</p>
+    <p class="addr" id="venueAddr">Bahçelievler Mah. 3. Cad., Melikgazi / Kayseri</p>
+    <div class="actions">
+      <a class="btn primary" id="gmaps" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M14 2 10 14l-2-5.5L2.5 6.5 14 2Z"/></svg>
+        Yol tarifi al
+      </a>
+      <a class="btn" id="amaps" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 4.5 5.5 2.5l5 2 4-2v9l-4 2-5-2-4 2v-9ZM5.5 2.5v9M10.5 4.5v9"/></svg>
+        Apple Haritalar
+      </a>
+    </div>
+    <button class="scroll-btn" type="button" data-next="#closing">
+      Aşağı Kaydır
+      <svg class="arw" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.6v10.2M3.9 8.9 8 13l4.1-4.1"/></svg>
+    </button>
+  </section>
+
+  <section class="wrap closing page" id="closing">
+    <p id="closingNote">Bu güzel günde yanımızda olmanız bizim için çok kıymetli.</p>
+    <p class="sig" id="sigLine">Nihan &amp; Ahmet · 17.10.2026</p>
+    <button class="replay" id="replayBtn" type="button">Davetiyeyi baştan izle</button>
+  </section>
+
+</main>
+
+<div id="laceOverlay" aria-hidden="true">
+  <svg class="lace lace-tl" viewBox="0 0 260 260" aria-hidden="true" focusable="false">
+    <defs>
+      <radialGradient id="prl" cx="34%" cy="28%" r="72%">
+        <stop offset="0" stop-color="#FFFFFF"/>
+        <stop offset="55%" stop-color="#FBF6EA"/>
+        <stop offset="100%" stop-color="#DFD2B8"/>
+      </radialGradient>
+      <g id="bloom">
+        <ellipse class="petal" cx="0" cy="-16" rx="6.2" ry="17"/>
+        <ellipse class="petal" cx="0" cy="-16" rx="6.2" ry="17" transform="rotate(45)"/>
+        <ellipse class="petal" cx="0" cy="-16" rx="6.2" ry="17" transform="rotate(90)"/>
+        <ellipse class="petal" cx="0" cy="-16" rx="6.2" ry="17" transform="rotate(135)"/>
+        <ellipse class="petal" cx="0" cy="-16" rx="6.2" ry="17" transform="rotate(180)"/>
+        <ellipse class="petal" cx="0" cy="-16" rx="6.2" ry="17" transform="rotate(225)"/>
+        <ellipse class="petal" cx="0" cy="-16" rx="6.2" ry="17" transform="rotate(270)"/>
+        <ellipse class="petal" cx="0" cy="-16" rx="6.2" ry="17" transform="rotate(315)"/>
+        <ellipse class="petal2" cx="0" cy="-8.5" rx="4" ry="9" transform="rotate(22.5)"/>
+        <ellipse class="petal2" cx="0" cy="-8.5" rx="4" ry="9" transform="rotate(67.5)"/>
+        <ellipse class="petal2" cx="0" cy="-8.5" rx="4" ry="9" transform="rotate(112.5)"/>
+        <ellipse class="petal2" cx="0" cy="-8.5" rx="4" ry="9" transform="rotate(157.5)"/>
+        <ellipse class="petal2" cx="0" cy="-8.5" rx="4" ry="9" transform="rotate(202.5)"/>
+        <ellipse class="petal2" cx="0" cy="-8.5" rx="4" ry="9" transform="rotate(247.5)"/>
+        <ellipse class="petal2" cx="0" cy="-8.5" rx="4" ry="9" transform="rotate(292.5)"/>
+        <ellipse class="petal2" cx="0" cy="-8.5" rx="4" ry="9" transform="rotate(337.5)"/>
+        <circle class="bead" r="3.8" fill="url(#prl)"/>
+      </g>
+    </defs>
+    <path class="stem" d="M4 66 C 44 88, 72 124, 84 178"/>
+    <path class="stem" d="M92 8 C 116 44, 152 60, 202 62"/>
+    <path class="stem" d="M40 40 C 78 66, 96 104, 100 146"/>
+    <path class="scallop" d="M2 96 a 15 15 0 0 0 30 0 a 15 15 0 0 0 30 0 a 15 15 0 0 0 30 0 a 15 15 0 0 0 30 0"/>
+    <path class="scallop" d="M118 4 a 15 15 0 0 1 0 30 a 15 15 0 0 1 0 30 a 15 15 0 0 1 0 30"/>
+    <use href="#bloom" transform="translate(42,46) scale(1.4)"/>
+    <use href="#bloom" transform="translate(112,24) scale(.92) rotate(18)"/>
+    <use href="#bloom" transform="translate(24,124) scale(1.06) rotate(-24)"/>
+    <use href="#bloom" transform="translate(92,100) scale(.66) rotate(42)"/>
+    <use href="#bloom" transform="translate(166,58) scale(.6) rotate(8)"/>
+    <use href="#bloom" transform="translate(62,178) scale(.56) rotate(-10)"/>
+    <use href="#bloom" transform="translate(140,112) scale(.44) rotate(24)"/>
+    <circle class="bead" cx="130" cy="86" r="3.1" fill="url(#prl)"/>
+    <circle class="bead" cx="146" cy="30" r="2.4" fill="url(#prl)"/>
+    <circle class="bead" cx="14" cy="158" r="2.6" fill="url(#prl)"/>
+    <circle class="bead" cx="106" cy="152" r="2.2" fill="url(#prl)"/>
+    <circle class="bead" cx="188" cy="88" r="2.4" fill="url(#prl)"/>
+    <circle class="bead" cx="76" cy="212" r="2.2" fill="url(#prl)"/>
+  </svg>
+
+  <svg class="lace lace-br" viewBox="0 0 260 260" aria-hidden="true" focusable="false">
+    <path class="stem" d="M4 66 C 44 88, 72 124, 84 178"/>
+    <path class="stem" d="M92 8 C 116 44, 152 60, 202 62"/>
+    <path class="scallop" d="M2 96 a 15 15 0 0 0 30 0 a 15 15 0 0 0 30 0 a 15 15 0 0 0 30 0 a 15 15 0 0 0 30 0"/>
+    <use href="#bloom" transform="translate(42,46) scale(1.28)"/>
+    <use href="#bloom" transform="translate(112,24) scale(.85) rotate(-14)"/>
+    <use href="#bloom" transform="translate(24,124) scale(.98) rotate(30)"/>
+    <use href="#bloom" transform="translate(92,100) scale(.6) rotate(-38)"/>
+    <use href="#bloom" transform="translate(166,58) scale(.55) rotate(12)"/>
+    <circle class="bead" cx="130" cy="86" r="2.9" fill="url(#prl)"/>
+    <circle class="bead" cx="18" cy="162" r="2.4" fill="url(#prl)"/>
+    <circle class="bead" cx="186" cy="90" r="2.2" fill="url(#prl)"/>
+  </svg>
+
+</div>
+
+<!-- Müzik bir <video> üzerinden çalıyor: iPhone'daki yan sessiz anahtarı
+     <audio> etiketini susturur, <video> medya kanalından çaldığı için etkilenmez.
+     Tarayıcı mp3'ü video etiketinde açamazsa aşağıdaki JS <audio>'ya döner. -->
+<video id="music" playsinline loop preload="auto" aria-hidden="true"
+       style="position:fixed;left:0;top:0;width:1px;height:1px;opacity:0;pointer-events:none;border:0"></video>
+<div id="soundHint" hidden>Müziği aç</div>
+
+<button id="sound" type="button" aria-label="Müziği aç / kapat">
+  <svg id="soundIcon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6h2.5L9 3v10L5.5 10H3V6Z"/><path d="M11.2 5.8a3.2 3.2 0 0 1 0 4.4M13 4a5.6 5.6 0 0 1 0 8"/></svg>
+</button>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   ✎ BURAYI DÜZENLEYİN — davetiyenin tüm içeriği bu blokta.
+   ══════════════════════════════════════════════════════════════ */
+const CONFIG = {
+  bride: "Nihan",
+  groom: "Ahmet",
+  conj: "ve",
+  initials: "NA",
+
+  // Tarih/saat — sonundaki +03:00 Türkiye saati demek, öyle kalsın.
+  startsAt: "2026-10-17T18:00:00+03:00",
+  endsAt:   "2026-10-18T00:00:00+03:00",
+  weekday:  "Cumartesi",
+  dayNum:   "17",
+  monthName:"Ekim",
+  yearNum:  "2026",
+  timeNum:  "18.00",
+  whenLabel:"17 Ekim 2026, Cumartesi",
+  timeLabel:"Saat 18.00",
+  signature:"Nihan & Ahmet · 17.10.2026",
+
+  eyebrow: "Düğünümüze davetlisiniz",
+  inviteText: "Mutluluğumuzu sizinle paylaşmak dileğiyle düğünümüze davetlisiniz.",
+  families: "",          // ör. "Yıldırım & Özkan Aileleri" — boş bırakılırsa satır hiç görünmez
+  closingNote: "Bu güzel günde yanımızda olmanız bizim için çok kıymetli.",
+
+  venueName: "Parle Davet ve Balo Salonu",
+  venueCity: "Melikgazi · Kayseri",
+  venueAddress: "Bahçelievler Mah. 3. Cad., Melikgazi / Kayseri",
+  mapsQuery: "Parle Davet ve Balo Salonu, Melikgazi, Kayseri",
+  mapsUrl:   "https://maps.app.goo.gl/1sBnp5pP1nK8rR2B7",   // Google Maps kısa linki
+  coords:    "38.7773273,35.5805531",                        // Apple Haritalar için
+
+  /* ── AÇILIŞ VİDEOSU ───────────────────────────────────────────
+     Kendi zarf açılma videonuzun adresini buraya yazın, örn:
+       introVideo: "https://ornek.com/intro.mp4"
+     Boş bırakılırsa yerine kodla çizilen zarf animasyonu oynar.
+     Videonun SON KARESİ ekranda donar; tüm yazılar onun üstüne gelir.
+  */
+  introVideo: "intro.mp4",
+  introSound: true,
+
+  /* ── MÜZİK ───────────────────────────────────────────────────
+     Lisanslı / telifsiz parçanızın adresini buraya yazın:
+       aynı klasördeki dosya  → "muzik.mp3"
+       kendi sunucunuzdaki    → "https://ornek.com/muzik.mp3"
+     Listeye birden fazla parça yazarsanız HER AÇILIŞTA rastgele
+     biri seçilir ve yalnızca o indirilir. Tek parça isterseniz
+     listede tek satır bırakın; liste boşsa müzik düğmesi görünmez.
+     Davetiye açıldığında yumuşak geçişle başlar, döngüde çalar;
+     misafir sağ alttaki düğmeden kapatabilir.                     */
+  musicUrls: [
+    "muzik1.mp3",
+    "muzik2.mp3"
+  ],
+  musicVolume: 0.60,      // 0–1 arası
+  musicFadeIn: 2400,      // açılış yumuşak geçişi (ms)
+  fallbackDuration: 3000,
+
+  /* Videonun 9:16 karesi içinde yazıların oturduğu güvenli alan.
+     Videoyu değiştirirseniz bu iki oranı ayarlayın:
+       boxTop    → kemerin altının başladığı yer (kare yüksekliğinin oranı)
+       boxHeight → yazı alanının yüksekliği      (kare yüksekliğinin oranı)  */
+  videoAspect: 9 / 16
+};
+/* ══════════════════════════════════════════════════════════════ */
+
+const $ = (id) => document.getElementById(id);
+const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ── İçeriği yerleştir ─────────────────────────────────────────── */
+$("coverNames").textContent = CONFIG.bride + " & " + CONFIG.groom;
+$("bride").textContent = CONFIG.bride;
+$("groom").textContent = CONFIG.groom;
+$("conj").textContent = CONFIG.conj;
+$("eyebrow").textContent = CONFIG.eyebrow;
+$("inviteText").textContent = CONFIG.inviteText;
+if (CONFIG.families) $("families").textContent = CONFIG.families;
+else $("families").remove();
+$("weekday").textContent = CONFIG.weekday;
+$("dayNum").textContent = CONFIG.dayNum;
+$("monthName").textContent = CONFIG.monthName;
+$("yearNum").textContent = CONFIG.yearNum;
+$("timeNum").textContent = CONFIG.timeNum;
+$("placeLine").textContent = CONFIG.venueName;
+$("whenLine").textContent = CONFIG.whenLabel;
+$("timeLine").textContent = CONFIG.timeLabel;
+$("venueName").textContent = CONFIG.venueName;
+$("venueCity").textContent = CONFIG.venueCity;
+$("venueAddr").textContent = CONFIG.venueAddress;
+$("closingNote").textContent = CONFIG.closingNote;
+$("sigLine").textContent = CONFIG.signature;
+$("mono").innerHTML = CONFIG.initials.split("").join(" &nbsp;");
+$("seal").textContent = CONFIG.initials;
+document.title = CONFIG.bride + " ve " + CONFIG.groom + " Davetiyesi";
+
+/* ── Harita bağlantıları ───────────────────────────────────────── */
+const q = encodeURIComponent(CONFIG.mapsQuery);
+const dirUrl = CONFIG.mapsUrl || ("https://www.google.com/maps/dir/?api=1&destination=" + q);
+$("gmaps").href = dirUrl;
+$("heroMaps").href = dirUrl;
+$("amaps").href = CONFIG.coords
+  ? "https://maps.apple.com/?ll=" + CONFIG.coords + "&q=" + q
+  : "https://maps.apple.com/?q=" + q;
+
+/* ── Takvim ────────────────────────────────────────────────────── */
+const start = new Date(CONFIG.startsAt);
+const end   = new Date(CONFIG.endsAt);
+const utc = (d) => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+const title = CONFIG.bride + " & " + CONFIG.groom + " Düğün Töreni";
+const where = CONFIG.venueName + ", " + CONFIG.venueAddress;
+
+$("gcal").href = "https://calendar.google.com/calendar/render?action=TEMPLATE"
+  + "&text=" + encodeURIComponent(title)
+  + "&dates=" + utc(start) + "/" + utc(end)
+  + "&location=" + encodeURIComponent(where)
+  + "&details=" + encodeURIComponent(CONFIG.inviteText);
+
+/* .ics indirme yalnızca kendi sunucunuzda çalışır; claude.ai önizlemesinde
+   sayfaların dosya indirmesine izin verilmediği için orada butonu gizliyoruz. */
+const sandboxed = Boolean(window.claude && typeof window.claude.use === "function");
+if (sandboxed){ $("ics").remove(); }
+
+else $("ics").addEventListener("click", () => {
+  const body = [
+    "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Davetiye//TR",
+    "BEGIN:VEVENT",
+    "UID:" + Date.now() + "@davetiye",
+    "DTSTAMP:" + utc(new Date()),
+    "DTSTART:" + utc(start),
+    "DTEND:" + utc(end),
+    "SUMMARY:" + title,
+    "LOCATION:" + where.replace(/,/g, "\\,"),
+    "END:VEVENT", "END:VCALENDAR"
+  ].join("\r\n");
+  const url = URL.createObjectURL(new Blob([body], { type: "text/calendar" }));
+  const a = document.createElement("a");
+  a.href = url; a.download = "dugun-davetiyesi.ics";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
+});
+
+/* ── Geri sayım ────────────────────────────────────────────────── */
+const pad = (n) => String(n).padStart(2, "0");
+let timer = null;
+function tick(){
+  const diff = start - Date.now();
+  if (diff <= 0){
+    $("counter").innerHTML = '<div style="grid-column:1/-1;border:0">'
+      + '<b style="font-size:clamp(1.5rem,6.5vw,2.1rem)">Bugün</b><span>Nice mutlu senelere</span></div>';
+    if (timer) clearInterval(timer);
+    return;
+  }
+  const s = Math.floor(diff / 1000);
+  $("cD").textContent = Math.floor(s / 86400);
+  $("cH").textContent = pad(Math.floor(s % 86400 / 3600));
+  $("cM").textContent = pad(Math.floor(s % 3600 / 60));
+  $("cS").textContent = pad(s % 60);
+}
+tick();
+timer = setInterval(tick, 1000);
+
+/* ── Açılış akışı ──────────────────────────────────────────────── */
+const video    = $("introVideo");
+const fallback = $("fallback");
+const env      = $("env");
+const wash     = $("paperWash");
+const cover    = $("cover");
+const content  = $("content");
+const soundBtn = $("sound");
+
+/* Derleme sırasında doldurulmayan yer tutucuları boş kabul et. */
+const asset = (v) => (typeof v === "string" && v.slice(0, 2) !== "__") ? v : "";
+
+/* Gömülü medyayı data: URI olarak bırakmıyoruz — bazı mobil tarayıcılar
+   (Mi Browser, eski WebView'ler) ~2 MB üstü data URI'yi sessizce reddediyor.
+   Blob adresinde böyle bir sınır yok. */
+function toBlobUrl(v){
+  if (!v || v.slice(0, 5) !== "data:") return v;
+  try{
+    const comma = v.indexOf(",");
+    const mime  = v.slice(5, comma).replace(";base64", "");
+    const bin   = atob(v.slice(comma + 1));
+    const buf   = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+    return URL.createObjectURL(new Blob([buf], { type: mime }));
+  } catch (e){ return v; }          // olmazsa data URI ile devam
+}
+
+CONFIG.introVideo = toBlobUrl(asset(CONFIG.introVideo));
+
+/* Parça listesinden her açılışta rastgele biri seçilir.
+   Yalnızca seçilen parça hazırlanır — diğeri indirilmez. */
+const tracks = (CONFIG.musicUrls || [CONFIG.musicUrl]).map(asset).filter(Boolean);
+CONFIG.musicUrl = tracks.length
+  ? toBlobUrl(tracks[Math.floor(Math.random() * tracks.length)])
+  : "";
+
+let useVideo = Boolean(CONFIG.introVideo);
+
+/* Video 9:16; ekranda "contain" ile ortalanıyor. Yazıların videonun
+   kemerine tam oturması için o karenin gerçek boyutunu ölçüp CSS'e veriyoruz. */
+function fitFrame(){
+  const fw = Math.min(innerWidth, innerHeight * CONFIG.videoAspect);
+  const fh = fw / CONFIG.videoAspect;
+  const st = document.documentElement.style;
+  st.setProperty("--fw", fw + "px");
+  st.setProperty("--fh", fh + "px");
+  st.setProperty("--ftop", Math.max(0, (innerHeight - fh) / 2) + "px");
+}
+
+if (useVideo){
+  document.documentElement.classList.add("has-video");
+  fitFrame();
+  addEventListener("resize", fitFrame, { passive: true });
+  video.src = CONFIG.introVideo;
+  fallback.hidden = true;
+  video.classList.add("on");
+  /* Video yüklenemezse: önce bir kez daha dene (geçici ağ hıçkırığı olabilir),
+     yine olmazsa kodla çizilen zarf tasarımına dön. */
+  let videoRetry = 0;
+  video.addEventListener("error", () => {
+    if (videoRetry++ === 0){
+      setTimeout(() => { video.src = CONFIG.introVideo; video.load(); }, 500);
+      return;
+    }
+    useVideo = false;
+    document.documentElement.classList.remove("has-video");
+    video.classList.remove("on");
+    fallback.hidden = false;
+    console.warn("intro videosu yüklenemedi:", CONFIG.introVideo);
+  });
+}
+
+let revealed = false;
+function reveal(){
+  if (revealed) return;
+  revealed = true;
+  document.body.classList.add("opened");
+  if (useVideo){ document.body.classList.add("snap"); document.documentElement.classList.add("snap"); }
+  content.setAttribute("aria-hidden", "false");
+  content.classList.add("reveal");
+  pagingOn = true;
+}
+
+let introStarted = false;
+function playIntro(){
+  if (introStarted) return;      // hem butondan hem zarftan tetiklenebilir
+  introStarted = true;
+  cover.classList.add("gone");
+
+  startMusic();
+
+  if (reduced){
+    wash.classList.add("on");
+    setTimeout(reveal, 200);
+    return;
+  }
+
+  if (useVideo){
+    video.muted = true;                 // video sessiz; ses müzikten geliyor
+    const p = video.play();
+    if (p && p.catch) p.catch(() => { video.play().catch(() => reveal()); });
+
+    video.addEventListener("ended", () => {
+      try { video.pause(); video.currentTime = Math.max(0, video.duration - 0.04); } catch(e){}
+      reveal();
+    }, { once: true });
+
+    /* Emniyet ağı: video oynamaz, takılır ya da "ended" hiç gelmezse
+       misafir kapak ekranında kilitli kalmasın — içerik yine de açılsın. */
+    video.addEventListener("error", reveal, { once: true });
+    const budget = () => (isFinite(video.duration) && video.duration > 0)
+      ? (video.duration - video.currentTime) * 1000 + 2500
+      : 9000;
+    let guard = setTimeout(reveal, 9000);
+    video.addEventListener("loadedmetadata", () => {
+      clearTimeout(guard);
+      guard = setTimeout(reveal, budget());
+    }, { once: true });
+  } else {
+    env.classList.add("open");
+    setTimeout(() => { wash.classList.add("on"); fallback.style.opacity = "0"; }, CONFIG.fallbackDuration - 1100);
+    setTimeout(reveal, CONFIG.fallbackDuration);
+  }
+}
+$("openBtn").addEventListener("click", playIntro);
+/* Buton dışında zarfın herhangi bir yerine dokunmak da açar. */
+cover.addEventListener("click", playIntro);
+
+/* ── Müzik ─────────────────────────────────────────────────────
+   Tarayıcılar sesi ancak kullanıcı hareketiyle başlatır; bu yüzden
+   müzik "Davetiyeyi Aç" dokunuşuyla açılıyor. */
+let music = $("music");
+const soundHint = $("soundHint");
+let musicOn = false;
+let fadeReq = 0;
+
+if (CONFIG.musicUrl){
+  music.src = CONFIG.musicUrl;
+  music.volume = 0;
+  // <video> mp3'ü açamazsa klasik <audio> elemanına düş
+  music.addEventListener("error", () => {
+    if (music.tagName === "AUDIO") return;
+    const a = document.createElement("audio");
+    a.id = "music"; a.loop = true; a.preload = "auto";
+    a.src = CONFIG.musicUrl; a.volume = 0;
+    music.replaceWith(a);
+    music = a;
+    if (musicOn) music.play().then(() => fadeTo(CONFIG.musicVolume, 600)).catch(() => {});
+  }, { once: true });
+} else {
+  soundBtn.remove();
+  soundHint.remove();
+}
+
+function showMusicHint(on){
+  if (!soundHint) return;
+  soundHint.hidden = !on;
+  soundBtn.classList.toggle("attn", on);
+}
+
+function fadeTo(target, ms){
+  cancelAnimationFrame(fadeReq);
+  const from = music.volume, t0 = performance.now();
+  const step = (t) => {
+    const k = ms > 0 ? Math.min(1, (t - t0) / ms) : 1;
+    music.volume = Math.max(0, Math.min(1, from + (target - from) * k));
+    if (k < 1) fadeReq = requestAnimationFrame(step);
+  };
+  fadeReq = requestAnimationFrame(step);
+}
+
+function updateSoundIcon(){
+  const icon = $("soundIcon");
+  if (!icon) return;
+  icon.innerHTML = musicOn
+    ? '<path d="M3 6h2.5L9 3v10L5.5 10H3V6Z"/><path d="M11.2 5.8a3.2 3.2 0 0 1 0 4.4M13 4a5.6 5.6 0 0 1 0 8"/>'
+    : '<path d="M3 6h2.5L9 3v10L5.5 10H3V6Z"/><path d="M11.5 6.5l3 3m0-3-3 3"/>';
+  soundBtn.setAttribute("aria-label", musicOn ? "Müziği kapat" : "Müziği aç");
+}
+
+function startMusic(){
+  if (!CONFIG.musicUrl) return;
+  soundBtn.classList.add("on");
+  music.play().then(() => {
+    musicOn = true;
+    showMusicHint(false);
+    fadeTo(CONFIG.musicVolume, CONFIG.musicFadeIn);
+    updateSoundIcon();
+  }).catch(() => {
+    // Tarayıcı ya da gömülü çerçeve sesi engelledi: misafir tek dokunuşla açabilsin
+    musicOn = false;
+    updateSoundIcon();
+    showMusicHint(true);
+    setTimeout(() => showMusicHint(false), 9000);
+  });
+}
+
+if (CONFIG.musicUrl){
+  updateSoundIcon();
+  /* Sayfa arka plana düşünce (başka sekme, Haritalar'a geçiş, ekran kilidi)
+   müzik sussun; geri dönülünce kaldığı yerden devam etsin. */
+let pausedByHide = false;
+function handleHidden(){
+  if (musicOn && !music.paused){ music.pause(); pausedByHide = true; }
+}
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) handleHidden();
+  else if (pausedByHide){
+    pausedByHide = false;
+    if (musicOn) music.play().catch(() => {});
+  }
+});
+addEventListener("pagehide", handleHidden);   // iOS Safari
+addEventListener("blur", () => { if (document.hidden) handleHidden(); });
+
+soundBtn.addEventListener("click", () => {
+    showMusicHint(false);
+    if (musicOn){
+      fadeTo(0, 400);
+      setTimeout(() => { if (!musicOn) music.pause(); }, 420);
+      musicOn = false;
+      updateSoundIcon();
+    } else {
+      music.play().then(() => {
+        musicOn = true;
+        fadeTo(CONFIG.musicVolume, 800);
+        updateSoundIcon();
+      }).catch(() => {});
+    }
+  });
+}
+
+/* ── Kaydırma: perde koyulaşır, yazı okunur kalır ──────────────── */
+const scrim = $("scrim");
+let ticking = false;
+addEventListener("scroll", () => {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    const p = Math.min(1, scrollY / Math.max(1, innerHeight * 0.85));
+    // video modunda kabartma dokunun görünmesi için perde sabit ve çok hafif
+    scrim.style.opacity = useVideo ? "0.10" : (0.08 + p * 0.6).toFixed(3);
+    ticking = false;
+  });
+}, { passive: true });
+
+/* ── Bölümler arası geçiş ──────────────────────────────────────
+   Tek bir kaydırma hareketi = tek bir bölüm. Sayfa parmağın altında
+   sürüklenmiyor; hareket algılanınca doğrudan komşu bölüme geçiyor.
+   Böylece butona basmakla elle kaydırmak aynı şeyi yapıyor. */
+const sections = () => [...document.querySelectorAll(".hero, .page")];
+let paging = false;      // geçiş animasyonu sürüyor mu
+let pagingOn = false;    // davetiye açıldıktan sonra devreye girer
+
+function nearestIndex(){
+  let best = 0, bestD = Infinity;
+  sections().forEach((sec, i) => {
+    const d = Math.abs(sec.getBoundingClientRect().top);
+    if (d < bestD){ bestD = d; best = i; }
+  });
+  return best;
+}
+
+function goTo(i){
+  const secs = sections();
+  i = Math.max(0, Math.min(secs.length - 1, i));
+  paging = true;
+  secs[i].scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+  clearTimeout(goTo._t);
+  goTo._t = setTimeout(() => { paging = false; }, reduced ? 60 : 720);
+}
+
+function step(dir){
+  if (!pagingOn || paging) return;
+  const target = nearestIndex() + dir;
+  if (target < 0 || target >= sections().length) return;
+  goTo(target);
+}
+
+/* fare / trackpad */
+addEventListener("wheel", (e) => {
+  if (!pagingOn) return;
+  e.preventDefault();                       // kendi kaydırmasını yapmasın
+  if (Math.abs(e.deltaY) < 6) return;
+  step(e.deltaY > 0 ? 1 : -1);
+}, { passive: false });
+
+/* dokunmatik */
+let touchY = null, touchDone = false;
+addEventListener("touchstart", (e) => {
+  if (!pagingOn) return;
+  touchY = e.touches[0].clientY;
+  touchDone = false;
+}, { passive: true });
+
+addEventListener("touchmove", (e) => {
+  if (!pagingOn) return;
+  e.preventDefault();
+  if (touchDone || touchY === null) return;
+  const dy = touchY - e.touches[0].clientY;
+  if (Math.abs(dy) > 42){                   // eşiği geçince hemen geç
+    touchDone = true;
+    step(dy > 0 ? 1 : -1);
+  }
+}, { passive: false });
+
+addEventListener("touchend", () => { touchY = null; }, { passive: true });
+
+/* klavye */
+addEventListener("keydown", (e) => {
+  if (!pagingOn) return;
+  const k = e.key;
+  if (k === "ArrowDown" || k === "PageDown" || k === " "){ e.preventDefault(); step(1); }
+  else if (k === "ArrowUp" || k === "PageUp"){ e.preventDefault(); step(-1); }
+  else if (k === "Home"){ e.preventDefault(); goTo(0); }
+  else if (k === "End"){ e.preventDefault(); goTo(sections().length - 1); }
+});
+
+/* "Aşağı Kaydır" butonları da aynı yoldan gider */
+document.querySelectorAll(".scroll-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const next = document.querySelector(btn.dataset.next);
+    if (next) goTo(sections().indexOf(next));
+  });
+});
+
+/* Ekran boyu değişince (yön değiştirme, adres çubuğu) bölüme yeniden otur */
+let resizeT;
+addEventListener("resize", () => {
+  if (!pagingOn) return;
+  clearTimeout(resizeT);
+  resizeT = setTimeout(() => {
+    if (paging) return;
+    const sec = sections()[nearestIndex()];
+    if (Math.abs(sec.getBoundingClientRect().top) > 6){
+      sec.scrollIntoView({ behavior: "auto", block: "start" });   // animasyonsuz: döngü olmasın
+    }
+  }, 250);
+});
+
+/* ── Baştan izle ───────────────────────────────────────────────── */
+$("replayBtn").addEventListener("click", () => {
+  scrollTo({ top: 0, behavior: "auto" });
+  document.body.classList.remove("opened", "snap");
+  document.documentElement.classList.remove("snap");
+  content.classList.remove("reveal");
+  content.setAttribute("aria-hidden", "true");
+  cover.classList.remove("gone");
+  wash.classList.remove("on");
+  scrim.style.opacity = "0.08";
+  revealed = false;
+  introStarted = false;
+  pagingOn = false;
+  if (useVideo){ try { video.pause(); video.currentTime = 0; } catch(e){} }
+  else { env.classList.remove("open"); fallback.style.opacity = "1"; }
+});
+</script>
+
+</body>
+</html>

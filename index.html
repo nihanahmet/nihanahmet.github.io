@@ -87,7 +87,7 @@ html, body{ color-scheme: only light; background-color: #F6F1E7; }
   --t-when:    1.3rem;
   --t-venue:   clamp(1.3rem, 5.5vw, 1.7rem);
   --t-body:    .95rem;
-  --t-scroll:  .88rem;
+  --t-scroll:  1.02rem;
 }
 
 /* ── Video modu: yazılar videonun kemerinin içine oturur ──────
@@ -107,7 +107,7 @@ html, body{ color-scheme: only light; background-color: #F6F1E7; }
   --t-when:    calc(var(--fw) * .042);
   --t-venue:   calc(var(--fw) * .050);
   --t-body:    calc(var(--fw) * .033);
-  --t-scroll:  calc(var(--fw) * .0315);
+  --t-scroll:  calc(var(--fw) * .0385);
 }
 .has-video #laceOverlay{ display: none; }
 .has-video .paper{ background: #F0E7E0; }
@@ -189,7 +189,7 @@ html, body{ color-scheme: only light; background-color: #F6F1E7; }
 .has-video .page{ position: relative; }
 .has-video .scroll-btn{
   position: absolute;
-  left: 50%; bottom: calc(var(--ftop) + var(--fh) * .060);
+  left: 50%; bottom: calc(var(--ftop) + var(--fh) * .048);
   transform: translateX(-50%);
   margin: 0;
 }
@@ -538,11 +538,11 @@ body.opened{ overflow-y: auto; overflow-x: hidden; }
 }
 
 .scroll-btn, .replay{
-  display: inline-flex; align-items: center; gap: .72em;
+  display: inline-flex; align-items: center; gap: .68em;
   cursor: pointer;
   font-family: "Playfair Display", Georgia, serif;
   font-size: var(--t-scroll);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
   letter-spacing: .01em;
   text-transform: none;
@@ -551,18 +551,34 @@ body.opened{ overflow-y: auto; overflow-x: hidden; }
   background: #FDFBF6;
   border: 0;
   border-radius: 999px;
-  padding: .82em 1.3em;
-  box-shadow: 0 2px 9px rgba(92,74,50,.16), 0 1px 2px rgba(92,74,50,.08);
+  padding: .95em 1.45em;
+  /* İnce altın halka + biraz daha derin gölge: buton zeminden ayrılsın,
+     misafir aşağıda başka bölümler olduğunu fark etsin. */
+  box-shadow: 0 0 0 1px var(--gold-line),
+              0 4px 14px rgba(92,74,50,.22),
+              0 1px 2px rgba(92,74,50,.10);
   /* transform YOK: buton ortalamak için translateX kullanıyor,
      hover'da transform'a dokunmak onu yerinden oynatır. */
   transition: background .25s ease, box-shadow .25s ease;
 }
 .scroll-btn:hover, .replay:hover{
   background: #FFFFFF;
-  box-shadow: 0 3px 12px rgba(92,74,50,.20), 0 1px 2px rgba(92,74,50,.10);
+  box-shadow: 0 0 0 1px var(--gold),
+              0 5px 18px rgba(92,74,50,.26),
+              0 1px 2px rgba(92,74,50,.12);
 }
 .scroll-btn:focus-visible, .replay:focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
-.arw{ width: .95em; height: .95em; flex: none; stroke: #4A4238; fill: none; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.arw{ width: 1.05em; height: 1.05em; flex: none; stroke: #4A4238; fill: none; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Ok, aralıklı ve çok yumuşak bir hareketle aşağıyı işaret eder.
+   (prefers-reduced-motion açıksa aşağıdaki blok bunu durduruyor.) */
+@keyframes okIsaret{
+  0%, 62%, 100%{ transform: translateY(0); }
+  73%{ transform: translateY(.22em); }
+  84%{ transform: translateY(0); }
+  92%{ transform: translateY(.13em); }
+}
+.scroll-btn .arw{ animation: okIsaret 3.6s ease-in-out infinite; }
 
 /* bölümler arası kurdele + inci */
 .ribbon{ height: 70px; width: 1px; margin: 0 auto; background: linear-gradient(180deg, transparent, var(--gold-line) 30%, var(--gold-line) 70%, transparent); position: relative; }
@@ -822,7 +838,7 @@ body.opened{ overflow-y: auto; overflow-x: hidden; }
     </div>
 
     <button class="scroll-btn" type="button" data-next="#countdown">
-      Aşağı Kaydır
+      Sonraki Sayfaya Geç
       <svg class="arw" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.6v10.2M3.9 8.9 8 13l4.1-4.1"/></svg>
     </button>
   </section>
@@ -850,7 +866,7 @@ body.opened{ overflow-y: auto; overflow-x: hidden; }
       </button>
     </div>
     <button class="scroll-btn" type="button" data-next="#location">
-      Aşağı Kaydır
+      Sonraki Sayfaya Geç
       <svg class="arw" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.6v10.2M3.9 8.9 8 13l4.1-4.1"/></svg>
     </button>
   </section>
@@ -881,7 +897,7 @@ body.opened{ overflow-y: auto; overflow-x: hidden; }
       </a>
     </div>
     <button class="scroll-btn" type="button" data-next="#closing">
-      Aşağı Kaydır
+      Sonraki Sayfaya Geç
       <svg class="arw" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.6v10.2M3.9 8.9 8 13l4.1-4.1"/></svg>
     </button>
   </section>

@@ -596,11 +596,14 @@ body.opened{ overflow-y: auto; overflow-x: hidden; }
   font-size: var(--t-when); line-height: 1.35; text-wrap: balance;
   margin: 0 0 1.5rem;
 }
+/* Saat, tarihin ikinci satırı: aynı yazı tipi, boyut ve renk. */
 .when small{
-  display: block; margin-top: .55rem;
-  font-family: "Jost", sans-serif;
-  font-size: .68rem; font-weight: 500; letter-spacing: .24em; text-transform: uppercase;
-  color: var(--ink-soft);
+  display: block;
+  margin-top: .1em;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: none;
+  color: inherit;
 }
 
 .actions{ display: grid; gap: .6rem; }
@@ -630,7 +633,11 @@ body.opened{ overflow-y: auto; overflow-x: hidden; }
   margin: 0 0 .45rem; text-wrap: balance;
 }
 .city{ font-size: var(--t-small); font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--gold-text); margin: 0 0 1.2rem; }
-.addr{ color: var(--ink-soft); font-weight: 400; font-size: var(--t-body); max-width: 25rem; margin: 0 auto 1.6rem; }
+.addr{ color: var(--ink-soft); font-weight: 400; font-size: var(--t-body); max-width: 25rem; margin: 0 auto; }
+/* Adres iki satır: resmi adres + yol tarifi. Aynı yazı tipi ve boyut,
+   aralarında yalnızca satır boşluğu kadar mesafe. */
+.addr-block{ display: grid; gap: .18em; margin: 0 auto 1.6rem; }
+.has-video .addr-block{ margin: 0 auto; }
 .pin{ width: 32px; height: 44px; margin: 0 auto 1rem; display: block; stroke: var(--gold); fill: none; stroke-width: 1.1; }
 
 .closing{ text-align: center; padding: 3.2rem 0 0; }
@@ -800,7 +807,10 @@ body.opened{ overflow-y: auto; overflow-x: hidden; }
     <p class="sub">Sizi burada bekliyoruz</p>
     <p class="venue" id="venueName">Parle Davet ve Balo Salonu</p>
     <p class="city" id="venueCity">Melikgazi · Kayseri</p>
-    <p class="addr" id="venueAddr">Bahçelievler Mah. 3. Cad., Melikgazi / Kayseri</p>
+    <div class="addr-block">
+      <p class="addr" id="venueAddr">Bahçelievler Mah. 3. Cad., Melikgazi / Kayseri</p>
+      <p class="addr" id="venueHint">(Gesi yolu, petrol ofisi arkası)</p>
+    </div>
     <div class="actions">
       <a class="btn primary" id="gmaps" href="#" target="_blank" rel="noopener">
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M14 2 10 14l-2-5.5L2.5 6.5 14 2Z"/></svg>
@@ -930,6 +940,7 @@ const CONFIG = {
   venueName: "Parle Davet ve Balo Salonu",
   venueCity: "Melikgazi · Kayseri",
   venueAddress: "Bahçelievler Mah. 3. Cad., Melikgazi / Kayseri",
+  venueHint: "(Gesi yolu, petrol ofisi arkası)",   // boş bırakılırsa satır görünmez
   mapsQuery: "Parle Davet ve Balo Salonu, Melikgazi, Kayseri",
   mapsUrl:   "https://maps.app.goo.gl/1sBnp5pP1nK8rR2B7",   // Google Maps kısa linki
   coords:    "38.7773273,35.5805531",                        // Apple Haritalar için
@@ -990,6 +1001,8 @@ $("timeLine").textContent = CONFIG.timeLabel;
 $("venueName").textContent = CONFIG.venueName;
 $("venueCity").textContent = CONFIG.venueCity;
 $("venueAddr").textContent = CONFIG.venueAddress;
+if (CONFIG.venueHint) $("venueHint").textContent = CONFIG.venueHint;
+else $("venueHint").remove();
 $("closingNote").textContent = CONFIG.closingNote;
 $("sigLine").textContent = CONFIG.signature;
 $("mono").innerHTML = CONFIG.initials.split("").join(" &nbsp;");
@@ -1010,7 +1023,8 @@ const start = new Date(CONFIG.startsAt);
 const end   = new Date(CONFIG.endsAt);
 const utc = (d) => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
 const title = CONFIG.bride + " & " + CONFIG.groom + " Düğün Töreni";
-const where = CONFIG.venueName + ", " + CONFIG.venueAddress;
+const where = CONFIG.venueName + ", " + CONFIG.venueAddress
+  + (CONFIG.venueHint ? " " + CONFIG.venueHint : "");
 
 $("gcal").href = "https://calendar.google.com/calendar/render?action=TEMPLATE"
   + "&text=" + encodeURIComponent(title)

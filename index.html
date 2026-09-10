@@ -6,6 +6,12 @@
 <meta name="theme-color" content="#F0E7E0">
 <meta name="description" content="17 Ekim 2026 Cumartesi, saat 18.00 — Parle Davet ve Balo Salonu, Kayseri. Davetiyeyi açmak için dokunun.">
 
+<!-- Marka tarayicilarinin (Mi Browser, Samsung Internet, Vivo/Oppo)
+     zorunlu koyu modunu kapatir. Tasarim degismez. -->
+<meta name="color-scheme" content="only light">
+<meta name="supported-color-schemes" content="light">
+<meta name="darkreader-lock">
+
 <!-- WhatsApp / Instagram / iMessage link önizlemesi -->
 <meta property="og:type"        content="website">
 <meta property="og:url"         content="https://nihanahmet.github.io/">
@@ -32,6 +38,22 @@
    Tek bir görsel dünyaya bağlı: krem kâğıt, ince altın
    çizgi, inci. Tema anahtarı yok; her renk açıkça boyanır.
    ───────────────────────────────────────────── */
+
+/* ── Marka tarayıcılarının zorunlu koyu modu ───────────────────
+   Mi Browser, Samsung Internet, Vivo/Oppo tarayıcıları Chromium'un
+   "Auto Dark Theme" özelliğini açık gönderiyor: sayfanın kendi koyu
+   teması yoksa tarayıcı bütün CSS renklerini kendisi ters çeviriyor
+   (krem hale siyah elips, krem butonlar koyu, koyu yazı soluk).
+   Video ters çevrilmediği için ortaya çıkan görüntü bozuk oluyor.
+   Aşağıdaki üç satır TASARIMI DEĞİŞTİRMEZ; yalnızca tarayıcıya
+   "bu sayfa yalnızca açık temada boyanır, dokunma" der. */
+:root{
+  color-scheme: only light;
+  forced-color-adjust: none;
+  -webkit-text-fill-color: currentColor;
+}
+html, body{ color-scheme: only light; background-color: #F6F1E7; }
+
 :root{
   --paper:      #F6F1E7;   /* fildişi zemin      */
   --paper-2:    #EBE1D0;   /* kâğıdın gölgesi    */
@@ -686,6 +708,43 @@ body.opened{ overflow-y: auto; overflow-x: hidden; }
 
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}
+
+/* ── Koyu mod: davetiye yine fildişi kalır ─────────────────────
+   Bazı marka tarayıcıları (Samsung Internet, Mi Browser) sayfayı
+   kendileri koyultmadan önce "bu sayfanın koyu mod stili var mı?"
+   diye bakar. Bu blok o soruya "var" cevabını verir ve renkleri
+   birebir açık temadaki değerlerle yeniden boyar — yani görünen
+   tasarım hiç değişmez, sadece tarayıcının müdahalesi durur. */
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: only light;
+    --paper:      #F6F1E7;
+    --paper-2:    #EBE1D0;
+    --pearl:      #FFFDF8;
+    --ink:        #413A2D;
+    --ink-soft:   #665D4F;
+    --gold:       #B39760;
+    --gold-text:  #7D5E24;
+    --gold-line:  rgba(179,151,96,.42);
+    --gold-faint: rgba(179,151,96,.20);
+  }
+  html, body{ background-color: #F6F1E7; color: #413A2D; }
+  .has-video .paper{ background: #F0E7E0; }
+  .has-video .cover-top{
+    background: radial-gradient(farthest-side at 50% 48%,
+      rgba(251,247,240,.93) 0%,
+      rgba(251,247,240,.86) 34%,
+      rgba(251,247,240,.58) 60%,
+      rgba(251,247,240,.22) 82%,
+      rgba(251,247,240,0)   100%);
+  }
+  .scroll-btn, .replay, #soundHint{ color: #4A4238; background: #FDFBF6; }
+  #sound{ background: rgba(255,253,248,.85); }
+  #sound svg{ stroke: #413A2D; }
+  .cartouche{
+    background: linear-gradient(165deg, rgba(255,254,250,.80), rgba(244,236,220,.80));
+  }
 }
 </style>
 
